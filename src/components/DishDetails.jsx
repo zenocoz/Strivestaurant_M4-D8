@@ -10,9 +10,11 @@ class DishDetails extends React.Component {
 
   componentDidMount() {
     let dishIdFromTheSearchBar = this.props.match.params.stefano
-    // if (dishIdFromTheSearchBar === 2) {
-    //   this.props.checkCacio(true)
-    // }
+    if (dishIdFromTheSearchBar === "2") {
+      this.props.checkCacio(true)
+    } else {
+      this.props.checkCacio(false)
+    }
     let correctDishToLoad = allTheDishes.find(
       (dish) => dish.id.toString() === dishIdFromTheSearchBar
     )

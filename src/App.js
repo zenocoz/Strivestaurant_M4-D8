@@ -46,7 +46,9 @@ class App extends React.Component {
           {/* <Route path="/details/:stefano" component={DishDetails} /> */}
           <Route
             path="/details/:stefano"
-            render={(props) => <DishDetails checkCacio={this.checkCacio} />}
+            render={(props) => (
+              <DishDetails checkCacio={this.checkCacio} {...props} />
+            )}
           />
         </Router>
       </>
