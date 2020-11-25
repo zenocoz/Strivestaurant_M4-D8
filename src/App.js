@@ -11,11 +11,19 @@ import DishDetails from "./components/DishDetails"
 import Menu from "./components/Menu"
 
 class App extends React.Component {
+  state = {
+    isCacio: false,
+  }
+
+  checkCacio = (check) => {
+    this.setState({ isCacio: check })
+  }
+
   render() {
     return (
       <>
         <Router>
-          <NavBar title="Strivestaurant" />
+          <NavBar isCacio={this.state.isCacio} title="Strivestaurant" />
           <Route
             path="/"
             exact
@@ -35,7 +43,11 @@ class App extends React.Component {
               <Reservations header="MAKE YOUR RESERVATION BY PASSING PROPS THROUGH A ROUTE COMPONENT" />
             )}
           />
-          <Route path="/details/:stefano" component={DishDetails} />
+          {/* <Route path="/details/:stefano" component={DishDetails} /> */}
+          <Route
+            path="/details/:stefano"
+            render={(props) => <DishDetails checkCacio={this.checkCacio} />}
+          />
         </Router>
       </>
     )

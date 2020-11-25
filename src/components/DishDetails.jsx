@@ -6,15 +6,13 @@ import allTheDishes from "../data/menu.json"
 class DishDetails extends React.Component {
   state = {
     dish: null,
-    isCacio: false,
   }
 
   componentDidMount() {
     let dishIdFromTheSearchBar = this.props.match.params.stefano
-    if (dishIdFromTheSearchBar === 2) {
-      this.state.isCacio = true
-      this.props.history.push
-    }
+    // if (dishIdFromTheSearchBar === 2) {
+    //   this.props.checkCacio(true)
+    // }
     let correctDishToLoad = allTheDishes.find(
       (dish) => dish.id.toString() === dishIdFromTheSearchBar
     )
